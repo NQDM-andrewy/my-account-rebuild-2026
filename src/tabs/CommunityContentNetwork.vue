@@ -19,7 +19,7 @@
         </div>
       </section>
       <div v-else style="height:100%">
-        <section class="tab-section start-section">
+        <section v-show="showStartSection" class="tab-section start-section">
           <p>
             You've just taken your first step towards getting your stories published. We're really glad you've signed up and we can't wait to see the things you're going to send to us - whether that's a report from your local history group, a photo of something you love, a review of a restaurant you've visited, a recipe for your granny's best flapjack or something else entirely, we want to see the great articles you're going to create. 
           </p>
@@ -35,7 +35,7 @@
             <ControlButton @click="getStarted" dark label="Get started" />
           </div>
         </section>
-        <section class="tab-section articles-section">
+        <section v-show="showArticlesSection" class="tab-section articles-section">
           <h3 class="section-heading">Your articles</h3>
           <div>
             <ControlButton @click="startNewArticle" dark label="Write a new article +" />
@@ -93,11 +93,14 @@ export default {
   data() {
     return {
       showFAQSection: false,
+      showStartSection: true,
+      showArticlesSection: false,
     }
   },
   methods: {
     getStarted() {
-      console.log('getStarted method works')
+      this.showStartSection = false
+      this.showArticlesSection = true
     },
     startNewArticle() {
       console.log('startNewArticle method works')
