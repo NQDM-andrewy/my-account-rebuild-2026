@@ -19,11 +19,8 @@
               :is="Component"
               :key="route.fullPath"
               @back-to-nav-menu="isTabColumnActive = false"
-              @disconnect-account="disconnectSocialAccount"
-              @connect-account="connectSocialAccount"
-              @remove-newsletter="removeNewsletter"
-              @add-newsletter="addNewsletter"
               v-bind="getRouteProps(route)"
+              v-on="getRouteListeners(route)"
             />
           </Transition>
         </router-view>
@@ -312,10 +309,17 @@ export default {
         acc[key] = availableProps[key]
         return acc
       }, {})
+    },
+    getRouteListeners() {
+      return {
+        'disconnect-account': this.disconnectSocialAccount,
+        'connect-account': this.connectSocialAccount,
+        'remove-newsletter': this.removeNewsletter,
+        'add-newsletter': this.addNewsletter
+      }
     }
   }
 }
-
 </script>
 
 <style lang="scss">

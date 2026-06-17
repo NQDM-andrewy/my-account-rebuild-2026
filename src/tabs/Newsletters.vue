@@ -32,7 +32,8 @@ export default {
   },
   props: {
     newsletterCards: Array
-  }
+  },
+  emits: ['remove-newsletter', 'add-newsletter']
 }
 </script>
 

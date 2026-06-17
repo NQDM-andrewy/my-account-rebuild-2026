@@ -41,7 +41,8 @@ export default {
   },
   props: {
     socialDetails: Array
-  }
+  },
+  emits: ['disconnect-account', 'connect-account']
 }
 </script>
 
