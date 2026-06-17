@@ -16,17 +16,26 @@ const routes = [
   {
     path: '/user/account/account-details/',
     name: 'AccountDetails',
-    component: () => import('../tabs/AccountDetails.vue')
+    component: () => import('../tabs/AccountDetails.vue'),
+    meta: {
+      props: ['accountDetails']
+    }
   },
   {
     path: '/user/account/login-details/',
     name: 'LoginDetails',
-    component: () => import('../tabs/LoginDetails.vue')
+    component: () => import('../tabs/LoginDetails.vue'),
+    meta: {
+      props: ['loginDetails']
+    }
   },
   {
     path: '/user/account/social/',
     name: 'SocialAccounts',
-    component: () => import('../tabs/SocialAccounts.vue')
+    component: () => import('../tabs/SocialAccounts.vue'),
+    meta: {
+      props: ['socialDetails']
+    }
   },
   {
     path: '/user/account/subscriptions/',
@@ -36,22 +45,34 @@ const routes = [
   {
     path: '/user/account/newsletters/',
     name: 'Newsletters',
-    component: () => import('../tabs/Newsletters.vue')
+    component: () => import('../tabs/Newsletters.vue'),
+    meta: {
+      props: ['newsletterCards']
+    }
   },
   {
     path: '/user/account/commenting/',
     name: 'CommentingAlias',
-    component: () => import('../tabs/CommentingAlias.vue')
+    component: () => import('../tabs/CommentingAlias.vue'),
+    meta: {
+      props: ['commentingAliasInput']
+    }
   },
   {
     path: '/user/account/marketing-preferences/',
     name: 'MarketingPreferences',
-    component: () => import('../tabs/MarketingPreferences.vue')
+    component: () => import('../tabs/MarketingPreferences.vue'),
+    meta: {
+      props: ['marketingPreferencesCheckboxes']
+    }
   },
   {
     path: '/user/account/ccn/',
     name: 'CommunityContentNetwork',
-    component: () => import('../tabs/CommunityContentNetwork.vue')
+    component: () => import('../tabs/CommunityContentNetwork.vue'),
+    meta: {
+      props: ['faqItems', 'ccnPhoneInput', 'termsAndConditionsCheckbox']
+    }
   }
 ]
 

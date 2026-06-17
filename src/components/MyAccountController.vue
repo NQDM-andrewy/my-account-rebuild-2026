@@ -23,15 +23,7 @@
               @connect-account="connectSocialAccount"
               @remove-newsletter="removeNewsletter"
               @add-newsletter="addNewsletter"
-              :accountDetails="accountDetails"
-              :loginDetails="loginDetails"
-              :socialDetails="socialDetails"
-              :newsletterCards="newsletterCards"
-              :commentingAliasInput="commentingAliasInput"
-              :marketingPreferencesCheckboxes="marketingPreferencesCheckboxes"
-              :faqItems="faqItems"
-              :ccnPhoneInput="ccnPhoneInput"
-              :termsAndConditionsCheckbox="termsAndConditionsCheckbox"
+              v-bind="getRouteProps(route)"
             />
           </Transition>
         </router-view>
@@ -303,6 +295,24 @@ export default {
     addNewsletter(id) {
       console.log(`addNewsletter :: ${id}`)
     },
+    getRouteProps(route) {
+      const availableProps = {
+        accountDetails: this.accountDetails,
+        loginDetails: this.loginDetails,
+        socialDetails: this.socialDetails,
+        newsletterCards: this.newsletterCards,
+        commentingAliasInput: this.commentingAliasInput,
+        marketingPreferencesCheckboxes: this.marketingPreferencesCheckboxes,
+        faqItems: this.faqItems,
+        ccnPhoneInput: this.ccnPhoneInput,
+        termsAndConditionsCheckbox: this.termsAndConditionsCheckbox
+      }
+
+      return (route.meta.props || []).reduce((acc, key) => {
+        acc[key] = availableProps[key]
+        return acc
+      }, {})
+    }
   }
 }
 
