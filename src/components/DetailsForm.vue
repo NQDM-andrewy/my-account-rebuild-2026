@@ -9,7 +9,7 @@
     </div>
     <div class="control-panel">
       <ControlButton @click="$emit('cancel')" :label="cancelBtnLabel" />
-      <ControlButton @click="$emit('submit')" dark :label="submitBtnLabel" />
+      <ControlButton @click="$emit('submit')" accent :label="submitBtnLabel" />
     </div>
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-    <button class="control-btn" :class="{'dark': dark}" :disabled="disabled">
+    <button class="control-btn" :class="{'accent': accent, 'alt': alt}" :disabled="disabled">
         <span>{{ label }}</span>
     </button>
 </template>
@@ -9,7 +9,8 @@ export default {
     name: 'ControlButton',
     props: {
         label: String,
-        dark: Boolean,
+        accent: Boolean,
+        alt: Boolean,
         disabled: Boolean
     },
 }
@@ -32,8 +33,14 @@ export default {
     font-weight: 700;
     line-height: 100%;
   }
-  &.dark {
+  &.accent {
     background: var(--Brand-colours-Brand-Accent, #BFCBF7);
+  }
+  &.alt {
+    background: var(--Brand-colours-Brand-Alt, #092E97);
+    span {
+      color: var(--Monoscale-100, #FFF);
+    }
   }
 }
 </style>

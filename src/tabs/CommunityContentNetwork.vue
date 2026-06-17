@@ -32,13 +32,13 @@
             Any contribution you make must be your own original work - that means you must have written the text and taken the picture yourself. If someone else did, you need their written permission for us to use it on our terms. You are also responsible for getting the facts right, keeping within the law and complying with the Editors' Code of Practice. If in doubt about anything, tell us and we will help. 
           </p>
           <div class="control-panel">
-            <ControlButton @click="getStarted" dark label="Get started" />
+            <ControlButton @click="getStarted" accent label="Get started" />
           </div>
         </section>
         <section v-show="showArticlesSection" class="tab-section articles-section">
           <h3 class="section-heading">Your articles</h3>
           <div>
-            <ControlButton @click="startNewArticle" dark label="Write a new article +" />
+            <ControlButton @click="startNewArticle" accent label="Write a new article +" />
           </div>
           <ul class="articles-list">
             <li class="articles-list-item">

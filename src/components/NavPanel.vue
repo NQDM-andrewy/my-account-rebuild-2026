@@ -1,7 +1,7 @@
 <template>
   <div class="nav-panel">
     <ControlButton @click="$emit('back')" :label="backBtnLabel" />
-    <ControlButton @click="$emit('next')" dark :label="nextBtnLabel" />
+    <ControlButton @click="$emit('next')" accent :label="nextBtnLabel" />
   </div>
 </template>
 

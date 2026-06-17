@@ -11,8 +11,8 @@
           <span>{{row.title}}</span>
         </div>
         <div class="control">
-          <ControlButton v-if="row.isConnected" @click="$emit('disconnect-account', row.title)" label="Disconnect account" />
-          <ControlButton v-else @click="$emit('connect-account', row.title)" label="Connect account" />
+          <ControlButton v-if="row.isConnected" @click="$emit('disconnect-account', row.title)" alt label="Disconnect account" />
+          <ControlButton v-else @click="$emit('connect-account', row.title)" accent label="Connect account" />
         </div>
       </div>
     </div>
