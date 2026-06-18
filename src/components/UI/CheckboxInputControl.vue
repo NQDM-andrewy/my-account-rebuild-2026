@@ -38,11 +38,9 @@ export default {
       border-radius: var(--3, 3px);
       border: 1px solid var(--border-form, #E6E6E9);
       background: var(--Monoscale-100, #FFF);
-      transform: translateY(3px);
     }
     &:checked::before {
-      background: var(--Messaging-Info, #188AE2);
-      // background: url('../../images/checkbox_checked.svg') no-repeat center / contain;
+      background: url('/src/images/checkbox_checked.svg') no-repeat center / contain;
     }
   }
 }

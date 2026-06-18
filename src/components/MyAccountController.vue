@@ -165,12 +165,12 @@ export default {
       socialDetails: [
         {
           title: 'Google',
-          img: '../images/google.svg',
+          img: '/src/images/google.svg',
           isConnected: false
         },
         {
           title: 'Facebook',
-          img: '../images/facebook.svg',
+          img: '/src/images/facebook.svg',
           isConnected: true
         },
       ],
