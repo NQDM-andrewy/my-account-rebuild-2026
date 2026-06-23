@@ -32,7 +32,7 @@
             Any contribution you make must be your own original work - that means you must have written the text and taken the picture yourself. If someone else did, you need their written permission for us to use it on our terms. You are also responsible for getting the facts right, keeping within the law and complying with the Editors' Code of Practice. If in doubt about anything, tell us and we will help. 
           </p>
           <div class="control-panel">
-            <ControlButton @click="getStarted" accent label="Get started" />
+            <ControlButton @click="startCreateArticle" accent label="Get started" />
           </div>
         </section>
         <section v-show="showArticlesSection" class="tab-section articles-section">
@@ -59,6 +59,35 @@
               </p>
             </li>
           </ul>
+        </section>
+        <section v-show="showCreateArticleSection" class="tab-section create-article-section">
+          <FormControl :formControl="ccnArticleHeadline" />
+          <p>
+            Please do your best to provide a useful  headline, but remember that, like all aspects of the contribution, it's  subject to being edited before being published.
+          </p>
+          <p>
+            Author: {Name}
+          </p>
+          <FormControl :formControl="ccnArticleBodyCopy" />
+          <p>
+            <b>Remember:</b> any contributions must be your own original work. That means you must have written the text, taken the photo, or drawn the picture yourself. If someone else did, you need their written permission for us to use it on our terms.
+          </p>
+          <FormControl :formControl="ccnArticleImagesUpload" />
+          <p>
+            It's very important that all images have an accurate and relevant caption, and that you have the legal rights to the image.
+          </p>
+          <div class="control-panel">
+            <ControlButton @click="$emit('cancel-article-create')" label="Cancel" />
+            <ControlButton @click="$emit('submit-article-create')" accent label="Submit" />
+          </div>
+        </section>
+        <section v-show="showThankyouSection" class="tab-section thankyou-section">
+          <h3 class="section-heading">Thank you!</h3>
+          <p>
+            This is exciting - your article has been sent to our newsdesk, where one of our editors will read it and review it. <br>
+            We’ll let you know when it’s ready to be published.
+          </p>
+          <img src="../images/ccn-submitted-icon.svg" alt="Submitted" class="submitted-img" loading="lazy">
         </section>
       </div>
     </div>
@@ -89,21 +118,29 @@ export default {
     faqItems: Array,
     ccnPhoneInput: Object,
     termsAndConditionsCheckbox: Object,
+    ccnArticleHeadline: Object,
+    ccnArticleBodyCopy: Object,
+    ccnArticleImagesUpload: Object
   },
   data() {
     return {
       showFAQSection: false,
-      showStartSection: true,
-      showArticlesSection: false,
+      showStartSection: false,
+      showArticlesSection: true,
+      showCreateArticleSection: false,
+      showThankyouSection: false
     }
   },
   methods: {
-    getStarted() {
+    startCreateArticle() {
+      this.showCreateArticleSection = true
+      this.showArticlesSection = false
       this.showStartSection = false
-      this.showArticlesSection = true
     },
     startNewArticle() {
-      console.log('startNewArticle method works')
+      this.showCreateArticleSection = false
+      this.showArticlesSection = false
+      this.showStartSection = true
     }
   }
 }
@@ -148,6 +185,28 @@ export default {
       }
       .form-control {
         max-width: 335px;
+      }
+    }
+    .create-article-section {
+      .form-control {
+        max-width: unset;
+      }
+      .control-panel {
+        display: flex;
+        align-items: center;
+        padding: var(--300, 10px) 0;
+        justify-content: flex-end;
+        align-items: center;
+        gap: var(--300, 10px);
+      }
+    }
+    .thankyou-section {
+      .submitted-img {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        max-width: 180px;
+        margin-top: 10px;
       }
     }
   }

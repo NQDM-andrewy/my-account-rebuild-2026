@@ -1,25 +1,25 @@
 <template>
-    <button class="control-btn" :class="{'accent': accent, 'alt': alt}" :disabled="disabled">
-        <span>{{ label }}</span>
-    </button>
+  <button class="control-btn" :class="{'accent': accent, 'alt': alt}" :disabled="disabled">
+    <span>{{ label }}</span>
+  </button>
 </template>
 
 <script>
 export default {
-    name: 'ControlButton',
-    props: {
-        label: String,
-        accent: Boolean,
-        alt: Boolean,
-        disabled: Boolean
-    },
+  name: 'ControlButton',
+  props: {
+    label: String,
+    accent: Boolean,
+    alt: Boolean,
+    disabled: Boolean
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .control-btn {
   display: flex;
-  height: 30px;
+  min-height: 30px;
   padding: var(--200, 5px) var(--300, 10px);
   align-items: center;
   border-radius: var(--100, 100px);

@@ -211,11 +211,13 @@ export default {
       marketingPreferencesCheckboxes: [
         {
           id: 'current_site_updates',
-          label: 'I would like to receive information about updates, events, subscriptions and offers from this site.'
+          label: 'I would like to receive information about updates, events, subscriptions and offers from this site.',
+          checked: true
         },
         {
           id: 'newsquest_media_updates',
-          label: 'I would like to receive information about updates, events, subscriptions and offers from Newsquest Media Brands.'
+          label: 'I would like to receive information about updates, events, subscriptions and offers from Newsquest Media Brands.',
+          checked: true
         },
         {
           id: 'current_site_third_parties',
@@ -262,6 +264,33 @@ export default {
           body: 'placeholder'
         },
       ],
+      ccnArticleHeadline: {
+        id: 'ccn_new_article_headline',
+        label: 'Headline',
+        type: 'text',
+        value: '',
+        placeholder: 'Enter a headline',
+        isRequired: true,
+        hasError: ''
+      },
+      ccnArticleBodyCopy: {
+        id: 'ccn_new_article_body_copy',
+        label: 'Body Copy',
+        type: 'text',
+        value: '',
+        placeholder: 'Enter a text',
+        isRequired: true,
+        hasError: ''
+      },
+      ccnArticleImagesUpload: {
+        id: 'ccn_new_article_images_upload',
+        label: 'Photos',
+        type: 'file',
+        value: '',
+        placeholder: 'Upload',
+        isRequired: true,
+        hasError: ''
+      },
       isTabColumnActive: null
     }
   },
@@ -302,7 +331,10 @@ export default {
         marketingPreferencesCheckboxes: this.marketingPreferencesCheckboxes,
         faqItems: this.faqItems,
         ccnPhoneInput: this.ccnPhoneInput,
-        termsAndConditionsCheckbox: this.termsAndConditionsCheckbox
+        termsAndConditionsCheckbox: this.termsAndConditionsCheckbox,
+        ccnArticleHeadline: this.ccnArticleHeadline,
+        ccnArticleBodyCopy: this.ccnArticleBodyCopy,
+        ccnArticleImagesUpload: this.ccnArticleImagesUpload
       }
 
       return (route.meta.props || []).reduce((acc, key) => {

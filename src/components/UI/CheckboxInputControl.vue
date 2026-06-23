@@ -1,7 +1,13 @@
 <template>
   <div class="checkbox-input-control">
-    <label :for="checkboxInput.id">
-      <input type="checkbox" :id="checkboxInput.id" :name="checkboxInput.id">
+    <label :for="checkboxInput.id" @click="$emit('input', !checkboxInput.checked)">
+      <input
+        type="checkbox"
+        :id="checkboxInput.id"
+        :name="checkboxInput.id"
+        :checked="checkboxInput.checked"
+        :disabled="checkboxInput.disabled"
+      >
       {{checkboxInput.label}}
     </label>
   </div>
@@ -13,6 +19,7 @@ export default {
   props: {
     checkboxInput: Object
   },
+  emits: ['input']
 }
 </script>
 

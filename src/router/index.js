@@ -71,7 +71,14 @@ const routes = [
     name: 'CommunityContentNetwork',
     component: () => import('../tabs/CommunityContentNetwork.vue'),
     meta: {
-      props: ['faqItems', 'ccnPhoneInput', 'termsAndConditionsCheckbox']
+      props: [
+        'faqItems',
+        'ccnPhoneInput',
+        'termsAndConditionsCheckbox',
+        'ccnArticleHeadline',
+        'ccnArticleBodyCopy',
+        'ccnArticleImagesUpload'
+      ]
     }
   }
 ]
